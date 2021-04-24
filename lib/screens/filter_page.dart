@@ -248,7 +248,7 @@ class _FilterPageState extends State<FilterPage> {
           child: ListView.builder(
             itemCount: optionsObj.length,
             itemBuilder: (BuildContext context, int index) {
-              optionsObj[index];
+              return optionsObj[index];
             },
           ),
         ),
