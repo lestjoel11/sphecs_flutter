@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class ListOptions extends StatefulWidget {
-  ListOptions(
-      {@required this.featureTitle,
-      @required this.featureOptions,
-      this.interaction,
-      this.checkboxVal});
-
   String featureTitle;
   List<dynamic> featureOptions;
   String interaction;
   bool checkboxVal;
+
+  ListOptions(
+      {@required this.featureTitle,
+      this.featureOptions,
+      this.interaction,
+      this.checkboxVal = false});
 
   @override
   _ListOptionsState createState() => _ListOptionsState();
@@ -21,11 +21,28 @@ class ListOptions extends StatefulWidget {
 class _ListOptionsState extends State<ListOptions> {
   @override
   Widget build(BuildContext context) {
+    return renderOptions(widget);
+  }
+}
+
+renderOptions(widget) {
+  print(widget.featureTitle + widget.featureOptions.length.toString());
+  if (widget.featureOptions == null ||
+      widget.featureOptions == [] ||
+      widget.featureOptions.length == 0) {
+    return ListTile(
+      title: Text(
+        widget.featureTitle,
+        style: TextStyle(
+            fontSize: 18.0, color: Colors.grey, fontWeight: FontWeight.bold),
+      ),
+    );
+  } else {
     return ExpansionTile(
       title: Text(
         widget.featureTitle,
         style: TextStyle(
-            fontSize: 18.0, fontWeight: FontWeight.bold, color: Colors.grey),
+            fontSize: 18.0, color: Colors.grey, fontWeight: FontWeight.w600),
       ),
       children: [
         for (var i = 0; i < widget.featureOptions.length; i++)
@@ -34,9 +51,9 @@ class _ListOptionsState extends State<ListOptions> {
             activeColor: Colors.deepPurpleAccent,
             value: widget.checkboxVal,
             onChanged: (bool value) {
-              setState(() {
-                widget.checkboxVal = value;
-              });
+              // setState(() {
+              //   widget.checkboxVal = value;
+              // });
             })
       ],
     );
