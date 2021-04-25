@@ -27,7 +27,7 @@ class _FilterPageState extends State<FilterPage> {
     ),
     ListOptions(
       featureTitle: "5G (Checkbox)",
-      featureOptions: SmartphoneData().getScreenType(SmartphoneData.data, 0),
+      checkboxVal: false,
     ),
     ListOptions(
       featureTitle: "Announced Date",
@@ -87,7 +87,7 @@ class _FilterPageState extends State<FilterPage> {
     ),
     ListOptions(
       featureTitle: "3.5mm jack",
-      featureOptions: SmartphoneData().getScreenType(SmartphoneData.data, 0),
+      checkboxVal: false,
     ),
     ListOptions(
       featureTitle: "WLAN network",
@@ -103,11 +103,11 @@ class _FilterPageState extends State<FilterPage> {
     ),
     ListOptions(
       featureTitle: "NFC",
-      featureOptions: SmartphoneData().getScreenType(SmartphoneData.data, 0),
+      checkboxVal: false,
     ),
     ListOptions(
       featureTitle: "Radio",
-      featureOptions: SmartphoneData().getScreenType(SmartphoneData.data, 0),
+      checkboxVal: false,
     ),
     ListOptions(
       featureTitle: "USB Type",
@@ -126,10 +126,6 @@ class _FilterPageState extends State<FilterPage> {
       featureOptions: SmartphoneData().getScreenType(SmartphoneData.data, 0),
     ),
     ListOptions(
-      featureTitle: "Price",
-      featureOptions: SmartphoneData().getScreenType(SmartphoneData.data, 0),
-    ),
-    ListOptions(
       featureTitle: "Network Speed",
       featureOptions: SmartphoneData().getScreenType(SmartphoneData.data, 0),
     ),
@@ -143,7 +139,7 @@ class _FilterPageState extends State<FilterPage> {
     ),
     ListOptions(
       featureTitle: "Stylus/Pen",
-      featureOptions: SmartphoneData().getScreenType(SmartphoneData.data, 0),
+      checkboxVal: false,
     ),
     ListOptions(
       featureTitle: "Selfie Cam Features",
