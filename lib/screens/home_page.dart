@@ -1,9 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:sphecs/constants.dart';
-
-import '../components/hamburger_menu.dart';
-import '../components/phone_card.dart';
 
 //TODO: ADD FLUTTER SLIDEABLE TO ALL CARDS OF THE RESULT AND ADD -ADD ALL TO LIsT BUTTON
 class HomePage extends StatelessWidget {
@@ -11,49 +6,33 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.white,
         appBar: AppBar(
+          leading: new Container(),
           centerTitle: true,
-          backgroundColor: Colors.deepPurple[400],
-          brightness: Brightness.dark,
           title: Text("Home"),
         ),
-        drawer: HamburgerMenu(),
-        body: ListView(
-          children: [
-            Padding(
-              padding: EdgeInsets.all(15.0),
-              child: Center(
-                child: Text(
-                  "Top Brands",
-                  style: kPageTitleText,
+        body: Padding(
+          padding: const EdgeInsets.all(5.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(52.0),
+                child: FloatingActionButton.extended(
+                  elevation: 2.0,
+                  backgroundColor: const Color(0xff03dac6),
+                  onPressed: () {
+                    Navigator.pushNamed(context, "/loading");
+                  },
+                  label: Text(
+                    'Get Started with filtering',
+                    style: TextStyle(fontSize: 18),
+                  ),
+                  icon: Icon(Icons.filter_alt_outlined),
                 ),
               ),
-            ),
-            Row(
-              children: [
-                Expanded(
-                  child: PhoneCard(
-                    phoneName: "Galaxy Note 9",
-                    brand: "Samsung",
-                  ),
-                ),
-                Expanded(
-                  child: PhoneCard(
-                    phoneName: "Galaxy Note 9",
-                    brand: "Samsung",
-                  ),
-                ),
-              ],
-            ),
-            Container(
-              child: ElevatedButton(
-                  child: Text("Go to Data"),
-                  onPressed: () {
-                    Navigator.pushNamed(context, "/database");
-                  }),
-            )
-          ],
+            ],
+          ),
         ),
       ),
     );
